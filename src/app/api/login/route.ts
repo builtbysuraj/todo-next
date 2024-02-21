@@ -49,7 +49,9 @@ export async function POST(req: NextRequest) {
       message: 'Login successful',
       success: true,
     })
-    response.cookies.set('token', token)
+
+    response.cookies.set('token', token, { httpOnly: true, secure: true })
+
     return response
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 })

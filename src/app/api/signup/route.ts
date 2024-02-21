@@ -43,7 +43,12 @@ export async function POST(req: NextRequest) {
       success: true,
       user: savedUser,
     })
-    response.cookies.set('token', token)
+
+    response.cookies.set('token', token, {
+      httpOnly: true,
+      secure: true,
+    })
+
     return response
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 })

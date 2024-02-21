@@ -7,7 +7,7 @@ import jwt from 'jsonwebtoken'
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(req: NextRequest) {
-  const cookieFromClient = req.cookies.get('token')?.value
+  const cookieFromClient = req.cookies.get('token')?.value || ''
   try {
     connectDB()
     const reqBody = await req.json()

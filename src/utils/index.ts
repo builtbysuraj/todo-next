@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken'
 import { NextRequest } from 'next/server'
 
 export const checkAuth = async (req: NextRequest) => {
-  const token = req.cookies.get('token')?.value
+  const token = req.cookies.get('token')?.value || ''
 
   if (!token) {
     return null

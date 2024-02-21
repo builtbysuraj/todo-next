@@ -15,6 +15,7 @@ export async function POST(req: NextRequest) {
     const { username, password } = reqBody
 
     // Check if user already exists
+    // @ts-ignore
     const user = await User.findOne({ username })
     if (user) {
       return NextResponse.json({ error: 'User already exists' })

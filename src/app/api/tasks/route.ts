@@ -11,6 +11,7 @@ export async function GET(req: NextRequest) {
     if (!user) {
       return NextResponse.json({ error: 'User does not exist' })
     }
+    // @ts-ignore
     const tasks = await Task.find({ user: user.id })
 
     return NextResponse.json({

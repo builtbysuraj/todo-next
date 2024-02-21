@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
 
     // Verify the token
     const decoded = jwt.verify(cookieFromClient, ENV.JWT_TOKEN_SECRET)
-
+    // @ts-ignore
     const user = await User.findById(decoded.id)
 
     if (!user) {

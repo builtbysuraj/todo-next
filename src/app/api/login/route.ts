@@ -6,7 +6,6 @@ import { NextRequest, NextResponse } from 'next/server'
 import bcryptjs from 'bcryptjs'
 // @ts-ignore
 import jwt from 'jsonwebtoken'
-import { cookies } from 'next/headers'
 
 export async function POST(req: NextRequest) {
   try {
@@ -45,14 +44,13 @@ export async function POST(req: NextRequest) {
       expiresIn: '1d',
     })
 
-    // update cookieStore
-    const cookieStore = cookies()
-    cookieStore.set('token', token)
-
-    return NextResponse.json({
+    // Create response and set cookie
+    const response = NextResponse.json({
       message: 'Login successful',
       success: true,
     })
+    response.cookies.set('token', token)
+    return response
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 })
   }

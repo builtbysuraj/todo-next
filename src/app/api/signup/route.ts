@@ -1,7 +1,6 @@
 import { ENV } from '@/conf'
 import connectDB from '@/db'
 import { User } from '@/model/user.model'
-import { cookies } from 'next/headers'
 import { NextRequest, NextResponse } from 'next/server'
 // @ts-ignore
 import bcryptjs from 'bcryptjs'
@@ -38,15 +37,14 @@ export async function POST(req: NextRequest) {
       expiresIn: '1d',
     })
 
-    const cookieStore = cookies()
-
-    cookieStore.set('token', token)
-
-    return NextResponse.json({
+    // Create response and set cookie
+    const response = NextResponse.json({
       message: 'User created successfully',
       success: true,
       user: savedUser,
     })
+    response.cookies.set('token', token)
+    return response
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 })
   }

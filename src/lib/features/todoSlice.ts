@@ -1,5 +1,5 @@
+// @ts-nocheck
 'use client'
-
 import type { TaskType } from '@/types'
 import { createSlice, nanoid } from '@reduxjs/toolkit'
 

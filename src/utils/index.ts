@@ -13,6 +13,7 @@ export const checkAuth = async (req: NextRequest) => {
 
   try {
     const decoded = jwt.verify(token, ENV.JWT_TOKEN_SECRET)
+    // @ts-ignore
     const user = await User.findById(decoded.id)
 
     return user

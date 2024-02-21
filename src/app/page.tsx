@@ -31,7 +31,7 @@ export default function Home() {
         />
         <Button className='w-20 h-10'>Add</Button>
       </form>
-      {state?.map((todo: TaskType) => (
+      {/* {state?.map((todo: TaskType) => (
         <div
           key={todo.id}
           className='flex text-center gap-2 justify-between w-full text-lg p-2 px-4 bg-slate-600 mb-2 rounded-md'
@@ -45,7 +45,7 @@ export default function Home() {
 
           <Button onClick={() => dispatch(todoRemoved(todo.id))}>Del</Button>
         </div>
-      ))}
+      ))} */}
     </div>
   )
 }

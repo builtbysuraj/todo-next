@@ -1,9 +1,9 @@
-import connectDB from '@/db'
+// import connectDB from '@/db'
 import { NextResponse } from 'next/server'
 
-export async function GET() {
+export function GET() {
   try {
-    await connectDB()
+    // await connectDB()
 
     const response = NextResponse.json({
       message: 'Logout successfully',

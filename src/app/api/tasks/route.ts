@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import connectDB from '@/db'
 import { Task } from '@/model/task.model'
 import { checkAuth } from '@/utils'

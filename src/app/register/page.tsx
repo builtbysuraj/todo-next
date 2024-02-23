@@ -3,7 +3,6 @@
 import { TaskType } from '@/types'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-export const dynamic = 'force-dynamic'
 
 axios.defaults.withCredentials = true
 

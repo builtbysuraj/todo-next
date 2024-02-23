@@ -10,7 +10,11 @@ export function GET() {
       success: true,
     })
 
-    response.cookies.set('token', '', { maxAge: 0 })
+    response.cookies.set('token', '', {
+      httpOnly: true,
+      secure: true,
+      maxAge: 0,
+    })
 
     return response
   } catch (error: any) {

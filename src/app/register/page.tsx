@@ -60,8 +60,11 @@ export default function Register() {
   }, [refetch])
 
   const handleLogout = async () => {
-    const res = await axios.get('/api/logout')
-    console.log(res)
+    const res = await fetch('/api/logout', {
+      cache: 'no-cache',
+    })
+    const data = await res.json()
+    console.log(data)
     setRefetch(!refetch)
   }
 

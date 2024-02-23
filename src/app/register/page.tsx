@@ -51,9 +51,14 @@ export default function Register() {
       console.error(error)
     }
   }
+
   useEffect(() => {
     ;(async () => {
-      const { data } = await axios.get('/api/tasks')
+      const res = await fetch('/api/tasks', {
+        cache: 'no-store',
+        credentials: 'include',
+      })
+      const data = await res.json()
       console.log(data)
       setAllTasks(data.tasks)
     })()
@@ -61,8 +66,8 @@ export default function Register() {
 
   const handleLogout = async () => {
     const res = await fetch('/api/logout', {
-      cache: 'no-cache',
-      credentials: 'include'
+      cache: 'no-store',
+      credentials: 'include',
     })
     const data = await res.json()
     console.log(data)

@@ -1,8 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: false,
+  // reactStrictMode: false,
   compiler: {
     // removeConsole: true,
+  },
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
   },
 }
 

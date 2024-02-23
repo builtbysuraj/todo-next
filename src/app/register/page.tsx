@@ -62,6 +62,7 @@ export default function Register() {
   const handleLogout = async () => {
     const res = await fetch('/api/logout', {
       cache: 'no-cache',
+      credentials: 'include'
     })
     const data = await res.json()
     console.log(data)

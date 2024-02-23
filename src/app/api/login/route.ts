@@ -50,7 +50,11 @@ export async function POST(req: NextRequest) {
       success: true,
     })
 
-    response.cookies.set('token', token, { httpOnly: true, secure: true })
+    response.cookies.set('token', token, {
+      httpOnly: true,
+      secure: true,
+      maxAge: 24 * 60 * 60 * 1000, // Expires in 1 day
+    })
 
     return response
   } catch (error: any) {
